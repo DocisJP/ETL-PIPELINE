@@ -63,8 +63,8 @@ santex-challenge-etl/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/DocisJP/ETL-PIPELINE.git
-   cd 
+   git clone https://github.com/your-username/data-engineering-etl-project.git
+   cd data-engineering-etl-project
    ```
 
 2. Create and activate a virtual environment:
@@ -87,6 +87,8 @@ santex-challenge-etl/
 ### AWS Setup
 
 AWS is used for storing the raw data and as the source for our ETL pipeline. Here's how to set it up:
+In this case I also creatd a new user in the IAM roles, giving it acces to manipulate the CLI and the buckets. 
+It's a good practice and I recommend following up on it.
 
 1. Install AWS CLI:
    ```bash
