@@ -12,7 +12,7 @@ This project implements an end-to-end ETL (Extract, Transform, Load) pipeline fo
 - Automated testing
 
 The pipeline handles customer data, performs various transformations including feature engineering and machine learning techniques, and prepares the data for analysis in Snowflake.
-For more deatail you can go [here](https://github.com/DocisJP/ETL-PIPELINE/blob/main/santex-challenge-etl/PythonReadme.md).
+For more details you can go [here](https://github.com/DocisJP/ETL-PIPELINE/blob/main/santex-challenge-etl/PythonReadme.md).
 
 ## Table of Contents
 
@@ -326,7 +326,7 @@ The `performance.py` file monitors the ETL pipeline's performance.
 
 ## Validation Images
 
-Validation images can be found in the `validation_images` folder, providing visual confirmation of successful validation steps.
+Validation images can be found in the [validation_images](https://github.com/DocisJP/ETL-PIPELINE/blob/main/images/validation.md) folder, providing visual confirmation of successful validation steps.
 
 ## Usage
 
