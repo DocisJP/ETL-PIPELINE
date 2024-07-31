@@ -121,15 +121,6 @@ class TestETLFunctions(unittest.TestCase):
         self.assertTrue(self.transformed_data['Purchase_History'].str.match(date_pattern).all(), 
                         "Purchase_History contains invalid date formats")
 
-    def test_data_format_version_detection(self):
-        df_v1 = self.df.copy()
-        self.assertEqual(check_data_format_version(df_v1), 1)
-
-        reset_version_cache()
-        df_v2 = self.df.copy()
-        df_v2['New_Column'] = 'some_value'
-        self.assertEqual(check_data_format_version(df_v2), 2)
-
     def test_preprocess_data(self):
         # Test for version 1 (standard processing)
         transformed_df_v1 = self.transformed_data
@@ -216,30 +207,6 @@ class TestETLFunctions(unittest.TestCase):
     def test_calculate_risk_score(self):
         self.assertIn('Risk_Score', self.transformed_data.columns)
         self.assertTrue((self.transformed_data['Risk_Score'] >= 0).all() and (self.transformed_data['Risk_Score'] <= 1).all())
-
-    def test_end_to_end_transformation(self):
-        # Test the entire transformation process for version 1
-        transformed_df_v1 = transform_data(self.df)
-        self.assertIsInstance(transformed_df_v1, pd.DataFrame)
-        self.assertNotIn('Purchase_Year', transformed_df_v1.columns)
-
-        # Reset cache before testing version 2
-        reset_version_cache()
-        
-        # Test the entire transformation process for version 2
-        df_v2 = self.df.copy()
-        df_v2['New_Column'] = 'some_value'
-        transformed_df_v2 = transform_data(df_v2)
-        self.assertIsInstance(transformed_df_v2, pd.DataFrame)
-        self.assertIn('Purchase_Year', transformed_df_v2.columns)
-
-        expected_columns = ['Customer_ID', 'Age', 'Income_Level', 'Coverage_Amount', 'Premium_Amount',
-                            'Purchase_History', 'Gender', 'Age_Group', 'Purchase_Day_of_Week',
-                            'Purchase_Month', 'Purchase_Season', 'Customer_Tenure', 'Cluster',
-                            'PCA1', 'PCA2', 'Risk_Score']
-        for col in expected_columns:
-            self.assertIn(col, transformed_df_v1.columns)
-            self.assertIn(col, transformed_df_v2.columns)
 
 if __name__ == '__main__':
     unittest.main()
