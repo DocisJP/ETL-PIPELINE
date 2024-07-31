@@ -12,6 +12,7 @@ This project implements an end-to-end ETL (Extract, Transform, Load) pipeline fo
 - Automated testing
 
 The pipeline handles customer data, performs various transformations including feature engineering and machine learning techniques, and prepares the data for analysis in Snowflake.
+For more deatail you can go [here](https://github.com/DocisJP/ETL-PIPELINE/blob/main/santex-challenge-etl/PythonReadme.md)
 
 ## Table of Contents
 
